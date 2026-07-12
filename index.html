@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Víctor Muñoz | Digital Operations</title>
+  <title>Victor Muñoz | Digital Operations</title>
   <meta
     name="description"
-    content="Víctor Muñoz helps small remote teams organize their tools, workflows, documentation, and reporting."
+    content="Victor Muñoz helps small remote teams organize their tools, workflows, documentation, and reporting."
   />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -204,6 +204,101 @@
       color: var(--accent-dark);
     }
 
+    .button-whatsapp {
+      background: #25a865;
+      border-color: #25a865;
+    }
+
+    .button-whatsapp:hover {
+      background: #1f8f55;
+      border-color: #1f8f55;
+    }
+
+    /* Hero — email + clear CTAs */
+    .hero-contact {
+      margin-bottom: 26px;
+    }
+
+    .hero-contact-email {
+      margin: 0 0 12px;
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: var(--muted);
+      letter-spacing: 0.01em;
+    }
+
+    .hero-contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 0 18px;
+      border-radius: 999px;
+      font-family: inherit;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition:
+        transform 160ms ease,
+        background 160ms ease,
+        border-color 160ms ease;
+    }
+
+    .hero-cta:hover {
+      transform: translateY(-1px);
+    }
+
+    .hero-cta--copy {
+      border: 1px solid var(--accent);
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .hero-cta--copy:hover {
+      background: var(--accent-dark);
+      border-color: var(--accent-dark);
+    }
+
+    .hero-cta--copy.is-copied {
+      background: var(--accent-dark);
+      border-color: var(--accent-dark);
+    }
+
+    .hero-cta--whatsapp {
+      border: 1px solid #25a865;
+      background: #25a865;
+      color: #fff;
+    }
+
+    .hero-cta--whatsapp:hover {
+      background: #1f8f55;
+      border-color: #1f8f55;
+    }
+
+    .contact-link {
+      font-weight: 500;
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .contact-link:hover {
+      color: var(--accent-dark);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    button.hero-cta {
+      cursor: pointer;
+      font-family: inherit;
+    }
+
     .meta-list {
       display: flex;
       flex-wrap: wrap;
@@ -268,13 +363,6 @@
       color: var(--text);
     }
 
-    .photo-caption {
-      margin: 14px 0 0;
-      color: var(--muted);
-      font-size: 0.85rem;
-      text-align: center;
-    }
-
     .section {
       padding: 88px 0;
     }
@@ -297,72 +385,240 @@
       font-size: 1.05rem;
     }
 
-    .cards-grid {
+    /* Problems — carousel + sidebar */
+    .problems-layout {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
+      grid-template-columns: minmax(240px, 0.8fr) minmax(0, 1.2fr);
+      gap: 48px;
+      align-items: start;
     }
 
-    .card {
-      min-height: 220px;
-      padding: 28px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-medium);
-      background: var(--surface);
+    .problems-sidebar,
+    .section-sidebar {
+      position: sticky;
+      top: 1.5rem;
     }
 
-    .card-number {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 32px;
-      height: 32px;
-      margin-bottom: 32px;
-      border-radius: 50%;
-      background: var(--accent-soft);
-      color: var(--accent);
-      font-size: 0.78rem;
+    .problems-sidebar h2 {
+      margin-bottom: 1rem;
+    }
+
+    .section-sidebar .carousel-quote {
+      margin-top: 1.25rem;
+      font-size: clamp(1.05rem, 1.8vw, 1.2rem);
+    }
+
+    .section-sidebar .problems-intro {
+      margin-top: 1.25rem;
+    }
+
+    .section-sidebar .problems-intro strong {
+      color: var(--text);
       font-weight: 600;
     }
 
-    .card h3 {
-      font-style: italic;
-      font-weight: 500;
-    }
-
-    .card p {
-      margin-bottom: 0;
+    .problems-intro {
+      margin: 0;
       color: var(--muted);
-      font-size: 0.98rem;
+      font-size: 1.05rem;
+      line-height: 1.75;
     }
 
-    .work-list {
-      display: grid;
-      gap: 1px;
-      overflow: hidden;
+    .problems-carousel {
+      position: relative;
+    }
+
+    .carousel-viewport,
+    .work-card,
+    .about-panel {
       border: 1px solid var(--border);
       border-radius: var(--radius-large);
-      background: var(--border);
+      background:
+        linear-gradient(160deg, var(--surface) 0%, rgba(235, 224, 216, 0.45) 100%);
+      box-shadow: var(--shadow);
     }
 
-    .work-item {
-      display: grid;
-      grid-template-columns: 0.75fr 1.25fr;
-      gap: 36px;
-      padding: 32px;
+    .carousel-viewport {
+      position: relative;
+      z-index: 0;
+      min-height: 300px;
+      padding: 2rem 2.75rem;
+      overflow: hidden;
+    }
+
+    .carousel-viewport::before {
+      position: absolute;
+      top: -40px;
+      right: -30px;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: var(--accent-soft);
+      opacity: 0.45;
+      content: "";
+      pointer-events: none;
+    }
+
+    .carousel-slide {
+      position: relative;
+      z-index: 1;
+      animation: carousel-fade 320ms ease;
+    }
+
+    .carousel-slide[hidden] {
+      display: none;
+    }
+
+    @keyframes carousel-fade {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .carousel-quote {
+      margin: 0 0 1.25rem;
+      padding: 0 0 0 1.75rem;
+      border: none;
+      font-size: clamp(1.22rem, 2.2vw, 1.48rem);
+      font-weight: 500;
+      font-style: italic;
+      line-height: 1.42;
+      color: var(--text);
+      position: relative;
+    }
+
+    .carousel-quote::before {
+      position: absolute;
+      left: 0;
+      top: -0.15em;
+      font-size: 2.75rem;
+      line-height: 1;
+      font-style: normal;
+      font-weight: 600;
+      color: var(--accent);
+      opacity: 0.28;
+      content: "\201C";
+    }
+
+    .carousel-answer {
+      padding: 0 0 0 1.75rem;
+    }
+
+    .carousel-answer-label {
+      margin: 0 0 0.35rem;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0;
+      text-transform: none;
+      color: var(--muted);
+      opacity: 0.85;
+    }
+
+    .carousel-answer > p:not(.carousel-answer-label) {
+      margin: 0;
+      color: var(--text);
+      font-size: 0.96rem;
+      line-height: 1.65;
+    }
+
+    .carousel-nav {
+      position: absolute;
+      z-index: 2;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      padding: 0;
+      border: 1px solid var(--border);
+      border-radius: 50%;
       background: var(--surface);
+      color: var(--text);
+      font-size: 1.35rem;
+      line-height: 1;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(42, 38, 34, 0.06);
+      transition: background 160ms ease, border-color 160ms ease;
     }
 
-    .work-item p {
-      margin-bottom: 0;
+    .carousel-nav:hover {
+      background: var(--accent-soft);
+      border-color: var(--accent);
+      color: var(--accent-dark);
+    }
+
+    .carousel-nav--prev {
+      left: -12px;
+    }
+
+    .carousel-nav--next {
+      right: -12px;
+    }
+
+    .carousel-footer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 1.25rem;
+    }
+
+    .carousel-dots {
+      display: flex;
+      gap: 8px;
+    }
+
+    .carousel-dot {
+      width: 9px;
+      height: 9px;
+      padding: 0;
+      border: none;
+      border-radius: 50%;
+      background: var(--border);
+      cursor: pointer;
+      transition: background 160ms ease, transform 160ms ease;
+    }
+
+    .carousel-dot.is-active {
+      background: var(--accent);
+      transform: scale(1.15);
+    }
+
+    .carousel-counter {
+      font-size: 0.82rem;
       color: var(--muted);
     }
 
-    .story-grid {
+    .work-cards {
       display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 64px;
-      align-items: start;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+
+    .work-card {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      padding: 1.75rem 1.5rem;
+    }
+
+    .work-card .eyebrow {
+      margin-bottom: 0;
+    }
+
+    .work-card h3 {
+      margin: 0;
+      font-size: 1.15rem;
+      font-weight: 600;
+      line-height: 1.35;
+    }
+
+    .work-card p:last-child {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.65;
     }
 
     .story-copy {
@@ -374,41 +630,63 @@
       font-size: 1.05rem;
     }
 
-    .quote {
-      margin-top: 32px;
-      padding: 20px 0 20px 20px;
-      border-left: 3px solid var(--accent);
-      color: var(--text) !important;
-      font-size: 1.12rem !important;
+    .story-copy p strong {
+      color: var(--text);
       font-weight: 500;
-      line-height: 1.5;
     }
 
-    .process {
+    .about-panel {
+      position: relative;
+      padding: 2rem 2.25rem;
+      overflow: hidden;
+    }
+
+    .about-panel::before {
+      position: absolute;
+      top: -40px;
+      right: -30px;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: var(--accent-soft);
+      opacity: 0.45;
+      content: "";
+      pointer-events: none;
+    }
+
+    .about-panel > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .panel-divider {
+      margin: 1.75rem 0;
+      border: none;
+      border-top: 1px solid var(--border);
+    }
+
+    .approach-steps {
       display: grid;
-      gap: 12px;
-      padding: 24px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-large);
-      background: var(--surface);
-      box-shadow: var(--shadow);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.35rem 2rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
     }
 
-    .process-step {
-      padding: 16px 18px;
-      border-radius: 14px;
-      background: var(--background);
-    }
-
-    .process-step strong {
+    .approach-step strong {
       display: block;
-      margin-bottom: 4px;
+      margin-bottom: 0.35rem;
+      font-size: 0.95rem;
       font-weight: 600;
+      color: var(--text);
     }
 
-    .process-step span {
+    .approach-step p {
+      margin: 0;
       color: var(--muted);
       font-size: 0.92rem;
+      line-height: 1.55;
     }
 
     .cta {
@@ -438,23 +716,44 @@
       font-size: 1.05rem;
     }
 
-    .cta-panel .button {
+    .cta-contact {
+      margin-top: 8px;
+    }
+
+    .cta-contact-email {
+      margin: 0 0 12px;
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.88);
+      letter-spacing: 0.01em;
+    }
+
+    .cta-contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .cta-panel .hero-cta--copy {
       border-color: #fff;
       background: #fff;
       color: var(--accent-dark);
     }
 
-    .cta-panel .button:hover {
+    .cta-panel .hero-cta--copy:hover,
+    .cta-panel .hero-cta--copy.is-copied {
       background: var(--surface-soft);
+      border-color: var(--surface-soft);
+      color: var(--accent-dark);
     }
 
-    .cta-panel .button-secondary {
+    .cta-panel .hero-cta--linkedin {
+      border: 1px solid rgba(255, 255, 255, 0.55);
       background: transparent;
       color: #fff;
-      border-color: rgba(255, 255, 255, 0.55);
     }
 
-    .cta-panel .button-secondary:hover {
+    .cta-panel .hero-cta--linkedin:hover {
       background: rgba(255, 255, 255, 0.12);
       border-color: #fff;
     }
@@ -487,14 +786,15 @@
       }
 
       .hero-grid,
-      .section-heading,
-      .story-grid,
-      .work-item {
+      .section-heading {
         grid-template-columns: 1fr;
       }
 
-      .hero-grid,
-      .story-grid {
+      .work-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-grid {
         gap: 40px;
       }
 
@@ -514,6 +814,43 @@
       h1 {
         max-width: none;
       }
+
+      .problems-layout {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+
+      .problems-sidebar,
+      .section-sidebar {
+        position: static;
+      }
+
+      .about-panel {
+        padding: 1.5rem 1.35rem;
+      }
+
+      .approach-steps {
+        grid-template-columns: 1fr;
+        gap: 1.15rem;
+      }
+
+      .carousel-nav--prev {
+        left: 4px;
+      }
+
+      .carousel-nav--next {
+        right: 4px;
+      }
+
+      .carousel-viewport {
+        padding: 1.5rem 2.25rem;
+        min-height: 280px;
+      }
+
+      .carousel-quote {
+        font-size: 1.15rem;
+        padding-left: 1.5rem;
+      }
     }
 
     @media (max-width: 620px) {
@@ -529,25 +866,23 @@
         padding-bottom: 64px;
       }
 
-      .cards-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .card,
-      .work-item {
-        padding: 22px;
-      }
-
-      .card-number {
-        margin-bottom: 22px;
-      }
-
       .hero-actions,
       .cta-panel .hero-actions {
         display: grid;
       }
 
-      .button {
+      .hero-contact-actions,
+      .cta-contact-actions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        width: 100%;
+      }
+
+      .cta-contact-actions .hero-cta--linkedin {
+        grid-column: 1 / -1;
+      }
+
+      .hero-cta {
         width: 100%;
       }
 
@@ -561,7 +896,7 @@
 <body>
   <header class="site-header">
     <div class="container navigation">
-      <a class="brand" href="#top">Víctor Muñoz</a>
+      <a class="brand" href="#top">Victor Muñoz</a>
 
       <nav class="navigation-links" aria-label="Main navigation">
         <a href="#help">How I help</a>
@@ -578,7 +913,7 @@
         <div>
           <p class="eyebrow">Digital operations for small remote teams</p>
 
-          <h1>I help small teams make sense of the work behind their work.</h1>
+          <h1>I help small teams bring clarity to their daily operations</h1>
 
           <p class="hero-intro">
             Most small teams do not start with a perfectly designed system.
@@ -591,19 +926,19 @@
             parts that have become difficult to manage.
           </p>
 
-          <div class="hero-actions">
-            <a class="button" href="mailto:victormunoz.work@gmail.com">
-              Get in touch
-            </a>
-
-            <a
-              class="button button-secondary"
-              href="https://www.linkedin.com/in/victormunozwork"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              View LinkedIn
-            </a>
+          <div class="hero-contact" data-copy-email="victormunoz.work@gmail.com">
+            <p class="hero-contact-email">victormunoz.work@gmail.com</p>
+            <div class="hero-contact-actions">
+              <button type="button" class="hero-cta hero-cta--copy" data-copy-btn>Copy email</button>
+              <a
+                class="hero-cta hero-cta--whatsapp"
+                href="https://wa.me/573053726837"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                WhatsApp
+              </a>
+            </div>
           </div>
 
           <ul class="meta-list" aria-label="Availability">
@@ -624,7 +959,7 @@
           <div class="photo-frame">
             <img
               src="images/victor.jpg"
-              alt="Víctor Muñoz — remote digital operations specialist"
+              alt="Victor Muñoz — remote digital operations specialist"
               width="640"
               height="800"
             />
@@ -633,62 +968,111 @@
               <code>images/victor.jpg</code>
             </div>
           </div>
-          <p class="photo-caption">Remote · Europe · English &amp; Spanish</p>
         </div>
       </div>
     </section>
 
     <section class="section section-soft" id="help">
       <div class="container">
-        <div class="section-heading">
-          <div>
+        <div class="problems-layout">
+          <aside class="section-sidebar">
             <p class="eyebrow">The kind of problems I work on</p>
-            <h2>Practical help for the parts that became difficult to manage.</h2>
+            <h2>Practical support for work that has become difficult to manage</h2>
+            <p class="problems-intro">
+              I usually join teams that already have tools and processes in place.
+              My role is to understand what is happening, find the gaps and create
+              a clearer way forward.
+            </p>
+          </aside>
+
+          <div
+            class="problems-carousel"
+            data-carousel
+            aria-roledescription="carousel"
+            aria-label="The kind of problems I work on"
+          >
+            <button
+              type="button"
+              class="carousel-nav carousel-nav--prev"
+              data-carousel-prev
+              aria-label="Previous problem"
+            >
+              ‹
+            </button>
+
+            <div class="carousel-viewport">
+              <article class="carousel-slide" data-carousel-slide>
+                <blockquote class="carousel-quote">
+                  We have a process, but it is difficult to follow.
+                </blockquote>
+                <div class="carousel-answer">
+                  <p class="carousel-answer-label">How I help</p>
+                  <p>
+                    I map what is currently happening and turn it into a workflow,
+                    checklist, SOP or template the team can return to.
+                  </p>
+                </div>
+              </article>
+
+              <article class="carousel-slide" data-carousel-slide hidden>
+                <blockquote class="carousel-quote">
+                  We have several tools, but they do not feel connected.
+                </blockquote>
+                <div class="carousel-answer">
+                  <p class="carousel-answer-label">How I help</p>
+                  <p>
+                    I learn how each platform is being used, identify the missing
+                    steps and create a clearer way to move information between them.
+                  </p>
+                </div>
+              </article>
+
+              <article class="carousel-slide" data-carousel-slide hidden>
+                <blockquote class="carousel-quote">
+                  There are too many small operational things to remember.
+                </blockquote>
+                <div class="carousel-answer">
+                  <p class="carousel-answer-label">How I help</p>
+                  <p>
+                    I help manage recurring tasks, registrations, follow-ups,
+                    participant journeys, files and internal tracking.
+                  </p>
+                </div>
+              </article>
+
+              <article class="carousel-slide" data-carousel-slide hidden>
+                <blockquote class="carousel-quote">
+                  The report says one thing, but the source says another.
+                </blockquote>
+                <div class="carousel-answer">
+                  <p class="carousel-answer-label">How I help</p>
+                  <p>
+                    I investigate the data, trace where the difference started and
+                    help repair the process behind the report.
+                  </p>
+                </div>
+              </article>
+            </div>
+
+            <button
+              type="button"
+              class="carousel-nav carousel-nav--next"
+              data-carousel-next
+              aria-label="Next problem"
+            >
+              ›
+            </button>
+
+            <div class="carousel-footer">
+              <div class="carousel-dots" role="tablist" aria-label="Choose problem">
+                <button type="button" class="carousel-dot is-active" data-carousel-dot aria-label="Problem 1" aria-selected="true"></button>
+                <button type="button" class="carousel-dot" data-carousel-dot aria-label="Problem 2" aria-selected="false"></button>
+                <button type="button" class="carousel-dot" data-carousel-dot aria-label="Problem 3" aria-selected="false"></button>
+                <button type="button" class="carousel-dot" data-carousel-dot aria-label="Problem 4" aria-selected="false"></button>
+              </div>
+              <span class="carousel-counter" data-carousel-counter aria-live="polite">1 / 4</span>
+            </div>
           </div>
-
-          <p>
-            I usually join teams that already have tools and processes in
-            place. My role is to understand what is happening, find the gaps
-            and create a clearer way forward.
-          </p>
-        </div>
-
-        <div class="cards-grid">
-          <article class="card">
-            <span class="card-number">01</span>
-            <h3>"We have a process, but it is difficult to follow."</h3>
-            <p>
-              I map what is currently happening and turn it into a workflow,
-              checklist, SOP or template the team can return to.
-            </p>
-          </article>
-
-          <article class="card">
-            <span class="card-number">02</span>
-            <h3>"We have several tools, but they do not feel connected."</h3>
-            <p>
-              I learn how each platform is being used, identify the missing
-              steps and create a clearer way to move information between them.
-            </p>
-          </article>
-
-          <article class="card">
-            <span class="card-number">03</span>
-            <h3>"There are too many small operational things to remember."</h3>
-            <p>
-              I help manage recurring tasks, registrations, follow-ups,
-              participant journeys, files and internal tracking.
-            </p>
-          </article>
-
-          <article class="card">
-            <span class="card-number">04</span>
-            <h3>"The report says one thing, but the source says another."</h3>
-            <p>
-              I investigate the data, trace where the difference started and
-              help repair the process behind the report.
-            </p>
-          </article>
         </div>
       </div>
     </section>
@@ -708,41 +1092,32 @@
           </p>
         </div>
 
-        <div class="work-list">
-          <article class="work-item">
-            <div>
-              <p class="eyebrow">Events and wellness</p>
-              <h3>Participant operations</h3>
-            </div>
-
+        <div class="work-cards">
+          <article class="work-card">
+            <p class="eyebrow">Events and wellness</p>
+            <h3>Participant operations</h3>
             <p>
-              Managing registrations, payment plans, follow-ups, coach
-              communication, internal trackers and the documents that help the
-              rest of the team understand what is happening.
+              Registrations, payment plans, follow-ups, coach communication,
+              internal trackers and the documents that help the rest of the team
+              see what is happening.
             </p>
           </article>
 
-          <article class="work-item">
-            <div>
-              <p class="eyebrow">Environmental and nonprofit work</p>
-              <h3>Data pipelines and reporting</h3>
-            </div>
-
+          <article class="work-card">
+            <p class="eyebrow">Environmental and nonprofit work</p>
+            <h3>Databases and dashboards</h3>
             <p>
-              Maintaining BigQuery pipelines and Looker Studio reports,
-              reviewing costly queries, checking missing data and moving
-              calculations into the right part of the system.
+              Keeping data pipelines and reporting dashboards reliable, fixing
+              slow or expensive queries, checking for missing data and making
+              sure the numbers live in the right place.
             </p>
           </article>
 
-          <article class="work-item">
-            <div>
-              <p class="eyebrow">Internal operations</p>
-              <h3>Documentation and implementation</h3>
-            </div>
-
+          <article class="work-card">
+            <p class="eyebrow">Internal operations</p>
+            <h3>Documentation and implementation</h3>
             <p>
-              Comparing SaaS platforms, preparing migrations and documenting
+              Comparing software tools, preparing migrations and documenting
               recurring work so the process becomes easier to repeat, explain
               and hand over.
             </p>
@@ -752,71 +1127,64 @@
     </section>
 
     <section class="section section-soft" id="about">
-      <div class="container story-grid">
-        <div>
-          <p class="eyebrow">How I work</p>
-          <h2>I am comfortable going inside a system and learning how it really works.</h2>
-        </div>
+      <div class="container">
+        <div class="problems-layout">
+          <aside class="section-sidebar">
+            <p class="eyebrow">How I work</p>
+            <h2>I am comfortable going inside a system and learning how it really works.</h2>
+          </aside>
 
-        <div class="story-copy">
-          <p>
-            Over time, I found that the work I enjoy most happens between
-            people and tools.
-          </p>
+          <div class="about-panel">
+            <div class="story-copy">
+              <p>
+                Over time, I found that the work I enjoy most happens
+                <strong>between people and tools</strong>.
+              </p>
 
-          <p>
-            It is not only setting up the platform. It is understanding who
-            needs to use it, what they need to know and what could go wrong
-            after everyone returns to their normal work.
-          </p>
+              <p>
+                It is not only setting up the platform. It is understanding who
+                needs to use it, what they need to know and what could go wrong
+                after everyone returns to their normal work.
+              </p>
 
-          <p>
-            I am calm, curious and comfortable working independently. Give me
-            the goal, access to the current process and the people I need to
-            ask. I will explore how things work, document what I find and keep
-            the work moving.
-          </p>
+              <p>
+                I am calm, curious and comfortable working independently. Give me
+                the goal, access to the current process and the people I need to
+                ask. I will explore how things work, document what I find and keep
+                the work moving.
+              </p>
 
-          <p>
-            My background includes five years in cybersecurity in banking,
-            followed by data engineering, reporting and digital operations.
-            It is a slightly unusual path, but it has made me careful with
-            systems and very comfortable with messy details.
-          </p>
+              <p>
+                My background includes five years in cybersecurity in banking,
+                followed by data engineering, reporting and digital operations.
+                It is a slightly unusual path, but it has made me careful with
+                systems and very comfortable with messy details.
+              </p>
+            </div>
 
-          <p class="quote">
-            My job is often to notice the gaps, then make them easier to manage.
-          </p>
-        </div>
-      </div>
-    </section>
+            <hr class="panel-divider" aria-hidden="true" />
 
-    <section class="section">
-      <div class="container story-grid">
-        <div>
-          <p class="eyebrow">My approach</p>
-          <h2>Understand first. Organize second.</h2>
-        </div>
+            <ol class="approach-steps">
+              <li class="approach-step">
+                <strong>Follow the current process</strong>
+                <p>I learn what the team is doing today, not what the documentation says should happen.</p>
+              </li>
 
-        <div class="process">
-          <div class="process-step">
-            <strong>1. Follow the current process</strong>
-            <span>I learn what the team is doing today, not what the documentation says should happen.</span>
-          </div>
+              <li class="approach-step">
+                <strong>Find the gaps</strong>
+                <p>I look for unclear ownership, repeated manual work and information that gets lost between tools.</p>
+              </li>
 
-          <div class="process-step">
-            <strong>2. Find the gaps</strong>
-            <span>I look for unclear ownership, repeated manual work and information that gets lost between tools.</span>
-          </div>
+              <li class="approach-step">
+                <strong>Build a practical structure</strong>
+                <p>I create workflows, documentation, trackers or small automations that fit the real team.</p>
+              </li>
 
-          <div class="process-step">
-            <strong>3. Build a practical structure</strong>
-            <span>I create workflows, documentation, trackers or small automations that fit the real team.</span>
-          </div>
-
-          <div class="process-step">
-            <strong>4. Make it easier to continue</strong>
-            <span>The goal is a process people can understand, use and maintain after the initial setup.</span>
+              <li class="approach-step">
+                <strong>Make it easier to continue</strong>
+                <p>The goal is a process people can understand, use and maintain after the initial setup.</p>
+              </li>
+            </ol>
           </div>
         </div>
       </div>
@@ -835,23 +1203,31 @@
           </p>
 
           <p>
-            Typical rate: <strong>US$25–28 per hour</strong>, depending on the
+            Typical rate: <strong>US$25–30 per hour</strong>, depending on the
             project and level of responsibility.
           </p>
 
-          <div class="hero-actions">
-            <a class="button" href="mailto:victormunoz.work@gmail.com">
-              Email Víctor
-            </a>
-
-            <a
-              class="button button-secondary"
-              href="https://www.linkedin.com/in/victormunozwork"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Connect on LinkedIn
-            </a>
+          <div class="cta-contact" data-copy-email="victormunoz.work@gmail.com">
+            <p class="cta-contact-email">victormunoz.work@gmail.com</p>
+            <div class="cta-contact-actions">
+              <button type="button" class="hero-cta hero-cta--copy" data-copy-btn>Copy email</button>
+              <a
+                class="hero-cta hero-cta--whatsapp"
+                href="https://wa.me/573053726837"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                WhatsApp
+              </a>
+              <a
+                class="hero-cta hero-cta--linkedin"
+                href="https://www.linkedin.com/in/victormunozwork"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                LinkedIn
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -860,7 +1236,7 @@
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p>© 2026 Víctor Muñoz</p>
+      <p>© 2026 Victor Muñoz</p>
       <p>Digital operations · Remote from Europe</p>
     </div>
   </footer>
@@ -869,12 +1245,113 @@
     (function () {
       var img = document.querySelector(".photo-frame img");
       var placeholder = document.querySelector(".photo-placeholder");
-      if (!img || !placeholder) return;
-      img.addEventListener("error", function () {
-        img.style.display = "none";
-        placeholder.hidden = false;
-        placeholder.style.display = "flex";
+      if (img && placeholder) {
+        img.addEventListener("error", function () {
+          img.style.display = "none";
+          placeholder.hidden = false;
+          placeholder.style.display = "flex";
+        });
+      }
+
+      document.querySelectorAll("[data-copy-email]").forEach(function (wrap) {
+        var email = wrap.getAttribute("data-copy-email");
+        var btn = wrap.querySelector("[data-copy-btn]");
+        if (!btn || !email) return;
+
+        btn.addEventListener("click", function () {
+          function showCopied() {
+            var original = btn.textContent;
+            btn.textContent = "Copied";
+            btn.classList.add("is-copied");
+            setTimeout(function () {
+              btn.textContent = original;
+              btn.classList.remove("is-copied");
+            }, 2000);
+          }
+
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(email).then(showCopied).catch(fallbackCopy);
+          } else {
+            fallbackCopy();
+          }
+
+          function fallbackCopy() {
+            var input = document.createElement("textarea");
+            input.value = email;
+            input.setAttribute("readonly", "");
+            input.style.position = "absolute";
+            input.style.left = "-9999px";
+            document.body.appendChild(input);
+            input.select();
+            try {
+              document.execCommand("copy");
+              showCopied();
+            } catch (e) {
+              btn.textContent = "Select & copy";
+            }
+            document.body.removeChild(input);
+          }
+        });
       });
+    })();
+
+    (function () {
+      var carousel = document.querySelector("[data-carousel]");
+      if (!carousel) return;
+
+      var slides = carousel.querySelectorAll("[data-carousel-slide]");
+      var dots = carousel.querySelectorAll("[data-carousel-dot]");
+      var counter = carousel.querySelector("[data-carousel-counter]");
+      var prevBtn = carousel.querySelector("[data-carousel-prev]");
+      var nextBtn = carousel.querySelector("[data-carousel-next]");
+      var current = 0;
+
+      function goTo(index) {
+        current = (index + slides.length) % slides.length;
+
+        slides.forEach(function (slide, i) {
+          slide.hidden = i !== current;
+        });
+
+        dots.forEach(function (dot, i) {
+          var active = i === current;
+          dot.classList.toggle("is-active", active);
+          dot.setAttribute("aria-selected", active ? "true" : "false");
+        });
+
+        if (counter) {
+          counter.textContent = current + 1 + " / " + slides.length;
+        }
+      }
+
+      if (prevBtn) {
+        prevBtn.addEventListener("click", function () {
+          goTo(current - 1);
+        });
+      }
+
+      if (nextBtn) {
+        nextBtn.addEventListener("click", function () {
+          goTo(current + 1);
+        });
+      }
+
+      dots.forEach(function (dot, i) {
+        dot.addEventListener("click", function () {
+          goTo(i);
+        });
+      });
+
+      carousel.addEventListener("keydown", function (event) {
+        if (event.key === "ArrowLeft") {
+          goTo(current - 1);
+        }
+        if (event.key === "ArrowRight") {
+          goTo(current + 1);
+        }
+      });
+
+      goTo(0);
     })();
   </script>
 </body>
