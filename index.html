@@ -282,6 +282,18 @@
       border-color: #1f8f55;
     }
 
+    .hero-cta--linkedin {
+      border: 1px solid var(--accent);
+      background: transparent;
+      color: var(--accent);
+    }
+
+    .hero-cta--linkedin:hover {
+      background: var(--accent-soft);
+      border-color: var(--accent-dark);
+      color: var(--accent-dark);
+    }
+
     .contact-link {
       font-weight: 500;
       color: var(--accent);
@@ -878,6 +890,10 @@
         width: 100%;
       }
 
+      .hero-contact-actions .hero-cta--copy {
+        grid-column: 1 / -1;
+      }
+
       .cta-contact-actions .hero-cta--linkedin {
         grid-column: 1 / -1;
       }
@@ -937,6 +953,14 @@
                 rel="noopener noreferrer"
               >
                 WhatsApp
+              </a>
+              <a
+                class="hero-cta hero-cta--linkedin"
+                href="https://www.linkedin.com/in/victormunozwork"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                LinkedIn
               </a>
             </div>
           </div>
@@ -1082,7 +1106,7 @@
         <div class="section-heading">
           <div>
             <p class="eyebrow">What this has looked like recently</p>
-            <h2>A mix of operations, systems and careful follow-through.</h2>
+            <h2>A mix of operations, systems and careful follow-through</h2>
           </div>
 
           <p>
